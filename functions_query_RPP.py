@@ -51,12 +51,11 @@ def search(deleg, ano, tomo, acta, dni, nom, apell, root):
     c = 1
     for row in rows:
         archivo=row[12]
-        Lb = Listbox(root)
-        Lb.insert(c, str(row))
+        Lb = Label( root, textvariable = row, relief = RAISED, bd=0, pady="3" )
         Lb.pack()
         root.bind('<Return>', (lambda event, f=archivo: open_file(f)))
         B = Button(root, text='Ver', command=(lambda f=archivo: open_file(f)))
-        B.pack()
+        B.pack(anchor="e")
         c = c + 1
     cnxn.close()
 
